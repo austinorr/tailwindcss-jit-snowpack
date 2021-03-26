@@ -8,7 +8,12 @@ const plugin = (snowpackConfig, _pluginOptions) => {
   return {
     name: "@local/snowpack-tailwindcss-jit",
     onChange({ filePath }) {
-      if (!micromatch.isMatch(filePath, tailwindConfig.purge)) {
+      let m =
+        tailwindConfig.purge && tailwindConfig.purge.content
+          ? tailwindConfig.purge.content
+          : tailwindConfig.purge;
+
+      if (!micromatch.isMatch(filePath, m)) {
         return;
       }
       this.markChanged(appCssPath);
