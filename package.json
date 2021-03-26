@@ -1,16 +1,22 @@
 {
+	"private": true,
 	"scripts": {
-		"dev": "cross-env NODE_ENV=development TAILWIND_MODE=watch snowpack dev",
-		"watch": "cross-env NODE_ENV=development TAILWIND_MODE=watch snowpack build --watch"
+		"dev": "cross-env NODE_ENV=development snowpack dev",
+		"watch": "cross-env NODE_ENV=development snowpack build --watch",
+		"build": "cross-env NODE_ENV=production snowpack build"
 	},
 	"devDependencies": {
+		"@local/snowpack-tailwindcss-jit": "file:./dev/snowpack-tailwindcss-jit",
+		"@snowpack/plugin-optimize": "^0.2.13",
 		"@snowpack/plugin-postcss": "^1.2.1",
 		"@snowpack/plugin-run-script": "^2.3.0",
-		"@tailwindcss/jit": "^0.1.4",
+		"@tailwindcss/jit": "^0.1.10",
 		"autoprefixer": "^10.2.5",
 		"cross-env": "^7.0.3",
 		"postcss": "^8.2.8",
 		"postcss-cli": "^8.3.1",
+		"postcss-import": "^14.0.0",
+		"postcss-import-ext-glob": "^2.0.1",
 		"snowpack": "^3.1.2",
 		"tailwindcss": "^2.0.4"
 	}
